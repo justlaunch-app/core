@@ -9,6 +9,7 @@ import { ThemeToggle } from '@/components/core/toggle';
 
 // Providers
 import { ThemeProvider } from '@react-navigation/native';
+import { ClerkProvider, ClerkLoaded } from '@clerk/clerk-expo';
 
 /**
  * https://www.npmjs.com/package/react-native-keyboard-controller
@@ -37,6 +38,8 @@ export {
 export const unstable_settings = {
   initialRouteName: 'index',
 };
+
+const clerkApiKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY || '';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -81,25 +84,29 @@ function RootLayoutNav() {
         key={`root-status-bar-${colorScheme === 'dark' ? 'light' : 'dark'}`}
       />
 
-      <ThemeProvider value={NAV_THEME[colorScheme]}>
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <Stack screenOptions={{ animation: 'ios' }}>
-            <Stack.Screen name="(root)" options={{ headerShown: false }} />
-            <Stack.Screen
-              name="modal"
-              options={{
-                title: 'Modal',
-                presentation: 'modal',
-                animation: 'fade_from_bottom',
+      <ClerkProvider publishableKey={clerkApiKey}>
+        <ThemeProvider value={NAV_THEME[colorScheme]}>
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <ClerkLoaded>
+              <Stack screenOptions={{ animation: 'ios' }}>
+                <Stack.Screen name="(root)" options={{ headerShown: false }} />
+                <Stack.Screen
+                  name="modal"
+                  options={{
+                    title: 'Modal',
+                    presentation: 'modal',
+                    animation: 'fade_from_bottom',
 
-                /** You have the ability to add left and right header JSX/TSX component here fx.: a Pressable Icon component or a Close Icon module*/
-                headerRight: () => <ThemeToggle />,
-                headerLeft: () => null,
-              }}
-            />
-          </Stack>
-        </GestureHandlerRootView>
-      </ThemeProvider>
+                    /** You have the ability to add left and right header JSX/TSX component here fx.: a Pressable Icon component or a Close Icon module*/
+                    headerRight: () => <ThemeToggle />,
+                    headerLeft: () => null,
+                  }}
+                />
+              </Stack>
+            </ClerkLoaded>
+          </GestureHandlerRootView>
+        </ThemeProvider>
+      </ClerkProvider>
     </>
   );
 }

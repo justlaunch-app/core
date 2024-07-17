@@ -9,6 +9,7 @@
     "ts:check": "tsc"
   },
   "dependencies": {
+    "@clerk/clerk-expo": "^1.2.7",
     "@expo/cli": "^0.10.11",
     "@expo/vector-icons": "^14.0.2",
     "@hookform/resolvers": "^3.2.0",
