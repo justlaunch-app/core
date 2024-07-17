@@ -1,3 +1,9 @@
+/**
+ * To link to your development build or standalone app, you need to specify a custom URL scheme for your app. You can register a scheme in your Expo config (app.json, app.config.js) by adding a string under the scheme key:
+ *
+ * { "expo": { "scheme": "myapp" } }
+ */
+
 import * as React from 'react';
 import { Pressable, ViewStyle, StyleProp, View } from 'react-native';
 import { cva, type VariantProps } from 'class-variance-authority';
