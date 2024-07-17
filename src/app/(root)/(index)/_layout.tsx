@@ -14,19 +14,11 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="(index)"
+        name="index"
         options={{
           title: 'Home',
           tabBarIcon: () => <TabBarIcon name="code" pathnames={['/', '/feed']} />,
           headerRight: HeaderRight,
-        }}
-      />
-      <Tabs.Screen
-        name="two"
-        options={{
-          title: 'Tab Two',
-          headerShown: false,
-          tabBarIcon: () => <TabBarIcon name="code" pathnames={['/two']} />,
         }}
       />
       <Tabs.Screen

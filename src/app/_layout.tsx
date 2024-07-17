@@ -64,7 +64,15 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const { colorScheme } = useColorScheme();
+  const { colorScheme, setColorScheme } = useColorScheme();
+
+  //initial colorScheme
+  useEffect(() => {
+    if (colorScheme === 'light') {
+      setColorScheme('dark');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
