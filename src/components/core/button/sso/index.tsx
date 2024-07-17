@@ -9,7 +9,7 @@ const buttonVariants = cva('group flex items-center justify-center', {
   variants: {
     size: {
       default: 'h-12 px-5 py-3',
-      compact: 'h-16 w-16',
+      compact: 'h-12 w-12',
     },
     radius: {
       none: '',
@@ -82,16 +82,15 @@ const SSOButton = <T extends SocialMethod>(
       {...props}
     >
       {({ pressed }) => (
-        <View className={cn(pressed && 'opacity-50')}>
-          <Text className="flex items-center justify-center">
-            <Icon
-              name={icon.name as keyof typeof FontAwesome}
-              size={iconSize}
-              className="mr-2"
-              color={method.icon.color}
-            />
-            {!isCompact && <Text>{method.title}</Text>}
-          </Text>
+        <View
+          className={cn(pressed && 'opacity-50', 'flex flex-row items-center justify-center gap-2')}
+        >
+          <Icon
+            name={icon.name as keyof typeof FontAwesome}
+            size={iconSize}
+            color={method.icon.color}
+          />
+          {!isCompact && <Text>{method.title}</Text>}
         </View>
       )}
     </Pressable>
