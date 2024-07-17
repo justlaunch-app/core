@@ -1,10 +1,12 @@
-import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 import { Pressable, ViewStyle, StyleProp, View } from 'react-native';
+import { cva, type VariantProps } from 'class-variance-authority';
+/** Utils */
 import { cn } from '@/lib/cn';
+
+/**Components and hooks */
 import { Icon as FontAwesome, Ionicon } from '@/components/core/icon';
 import { Text } from '@/components/core/text';
-
 import { useSSOLogin, OAuthStrategy } from '@/hooks/sso';
 
 const buttonVariants = cva('group flex items-center justify-center', {
@@ -41,14 +43,30 @@ type ButtonProps<T extends SocialMethod> = React.ComponentPropsWithoutRef<typeof
     socialMethod: T;
     iconFormat?: ValidIconFormats[T];
     iconSize?: number;
+    redirectURL?: string;
+    schema?: string;
   };
 
 const SSOButton = <T extends SocialMethod>(
-  { className, size, socialMethod, radius, iconSize = 26, iconFormat, ...props }: ButtonProps<T>,
+  {
+    className,
+    size,
+    socialMethod,
+    radius,
+    iconSize = 26,
+    iconFormat,
+    redirectURL,
+    schema,
+    ...props
+  }: ButtonProps<T>,
   ref: React.Ref<React.ElementRef<typeof Pressable>>
 ) => {
   const method = socialMethods[socialMethod];
-  const ssoLogin = useSSOLogin({ strategy: method.strategy as OAuthStrategy });
+  const ssoLogin = useSSOLogin({
+    strategy: method.strategy as OAuthStrategy,
+    redirectURL: redirectURL,
+    scheme: schema,
+  });
 
   if (!method) {
     console.error(`Unknown social method: ${socialMethod}`);
@@ -137,14 +155,6 @@ const socialMethods = {
       plain: { name: 'apple', iconSet: 'fontawesome' },
     },
   },
-  microsoft: {
-    title: 'Sign in with Microsoft',
-    strategy: 'oauth_microsoft',
-    icon: {
-      color: '#00A4EF',
-      round: { name: 'logo-microsoft', iconSet: 'ionicons' },
-    },
-  },
   github: {
     title: 'Sign in with GitHub',
     strategy: 'oauth_github',
@@ -165,6 +175,14 @@ const socialMethods = {
       plain: { name: 'twitter', iconSet: 'fontawesome' },
     },
   },
+  microsoft: {
+    title: 'Sign in with Microsoft',
+    strategy: 'oauth_microsoft',
+    icon: {
+      color: '#00A4EF',
+      round: { name: 'logo-microsoft', iconSet: 'ionicons' },
+    },
+  },
   linkedin: {
     title: 'Sign in with LinkedIn',
     strategy: 'oauth_linkedin',
@@ -175,24 +193,45 @@ const socialMethods = {
       plain: { name: 'linkedin', iconSet: 'fontawesome' },
     },
   },
-  instagram: {
-    title: 'Sign in with Instagram',
-    strategy: 'oauth_instagram',
+  dropbox: {
+    title: 'Sign in with Dropbox',
+    strategy: 'oauth_dropbox',
     icon: {
-      color: '#E1306C',
-      square: { name: 'instagram-square', iconSet: 'fontawesome' },
-      round: { name: 'logo-instagram', iconSet: 'ionicons' },
-      plain: { name: 'instagram', iconSet: 'fontawesome' },
+      color: '#0061FF',
+      plain: { name: 'dropbox', iconSet: 'fontawesome' },
     },
   },
-  whatsapp: {
-    title: 'Sign in with WhatsApp',
-    strategy: 'oauth_whatsapp',
+  discord: {
+    title: 'Sign in with Discord',
+    strategy: 'oauth_discord',
     icon: {
-      color: '#25D366',
-      square: { name: 'whatsapp-square', iconSet: 'fontawesome' },
-      round: { name: 'logo-whatsapp', iconSet: 'ionicons' },
-      plain: { name: 'whatsapp', iconSet: 'fontawesome' },
+      color: '#7289DA',
+      square: { name: 'discord-square', iconSet: 'fontawesome' },
+      round: { name: 'logo-discord', iconSet: 'ionicons' },
+    },
+  },
+  twitch: {
+    title: 'Sign in with Twitch',
+    strategy: 'oauth_twitch',
+    icon: {
+      color: '#9146FF',
+      plain: { name: 'twitch', iconSet: 'fontawesome' },
+    },
+  },
+  tiktok: {
+    title: 'Sign in with TikTok',
+    strategy: 'oauth_tiktok',
+    icon: {
+      color: '#000000',
+      plain: { name: 'tiktok', iconSet: 'fontawesome' },
+    },
+  },
+  gitlab: {
+    title: 'Sign in with GitLab',
+    strategy: 'oauth_gitlab',
+    icon: {
+      color: '#FC6D26',
+      plain: { name: 'gitlab', iconSet: 'fontawesome' },
     },
   },
   slack: {
@@ -205,14 +244,44 @@ const socialMethods = {
       plain: { name: 'slack', iconSet: 'fontawesome' },
     },
   },
-  amazon: {
-    title: 'Sign in with Amazon',
-    strategy: 'oauth_amazon',
+  linear: {
+    title: 'Sign in with Linear',
+    strategy: 'oauth_linear',
     icon: {
-      color: '#FF9900',
-      square: { name: 'amazon-square', iconSet: 'fontawesome' },
-      round: { name: 'logo-amazon', iconSet: 'ionicons' },
-      plain: { name: 'amazon', iconSet: 'fontawesome' },
+      color: '#000000',
+      plain: { name: 'linear', iconSet: 'fontawesome' },
+    },
+  },
+  atlassian: {
+    title: 'Sign in with Atlassian',
+    strategy: 'oauth_atlassian',
+    icon: {
+      color: '#0052CC',
+      plain: { name: 'atlassian', iconSet: 'fontawesome' },
+    },
+  },
+  bitbucket: {
+    title: 'Sign in with Bitbucket',
+    strategy: 'oauth_bitbucket',
+    icon: {
+      color: '#2684FF',
+      plain: { name: 'bitbucket', iconSet: 'fontawesome' },
+    },
+  },
+  hubspot: {
+    title: 'Sign in with HubSpot',
+    strategy: 'oauth_hubspot',
+    icon: {
+      color: '#FF7A59',
+      plain: { name: 'hubspot', iconSet: 'fontawesome' },
+    },
+  },
+  coinbase: {
+    title: 'Sign in with Coinbase',
+    strategy: 'oauth_coinbase',
+    icon: {
+      color: '#0052FF',
+      plain: { name: 'coinbase', iconSet: 'fontawesome' },
     },
   },
   spotify: {
@@ -223,43 +292,36 @@ const socialMethods = {
       plain: { name: 'spotify', iconSet: 'fontawesome' },
     },
   },
-  steam: {
-    title: 'Sign in with Steam',
-    strategy: 'oauth_steam',
+  notion: {
+    title: 'Sign in with Notion',
+    strategy: 'oauth_notion',
     icon: {
       color: '#000000',
-      square: { name: 'steam-square', iconSet: 'fontawesome' },
-      round: { name: 'logo-steam', iconSet: 'ionicons' },
-      plain: { name: 'steam', iconSet: 'fontawesome' },
+      plain: { name: 'notion', iconSet: 'fontawesome' },
     },
   },
-  dribbble: {
-    title: 'Sign in with Dribbble',
-    strategy: 'oauth_dribbble',
+  line: {
+    title: 'Sign in with LINE',
+    strategy: 'oauth_line',
     icon: {
-      color: '#EA4C89',
-      square: { name: 'dribbble-square', iconSet: 'fontawesome' },
-      round: { name: 'logo-dribbble', iconSet: 'ionicons' },
-      plain: { name: 'dribbble', iconSet: 'fontawesome' },
+      color: '#00C300',
+      plain: { name: 'line', iconSet: 'fontawesome' },
     },
   },
-  discord: {
-    title: 'Sign in with Discord',
-    strategy: 'oauth_discord',
+  box: {
+    title: 'Sign in with Box',
+    strategy: 'oauth_box',
     icon: {
-      color: '#7289DA',
-      square: { name: 'discord-square', iconSet: 'fontawesome' },
-      round: { name: 'logo-discord', iconSet: 'ionicons' },
+      color: '#0061FF',
+      plain: { name: 'box', iconSet: 'fontawesome' },
     },
   },
-  pinterest: {
-    title: 'Sign in with Pinterest',
-    strategy: 'oauth_pinterest',
+  xero: {
+    title: 'Sign in with Xero',
+    strategy: 'oauth_xero',
     icon: {
-      color: '#E60023',
-      square: { name: 'pinterest-square', iconSet: 'fontawesome' },
-      round: { name: 'logo-pinterest', iconSet: 'ionicons' },
-      plain: { name: 'pinterest', iconSet: 'fontawesome' },
+      color: '#13B5EA',
+      plain: { name: 'xero', iconSet: 'fontawesome' },
     },
   },
-} as const;
+};

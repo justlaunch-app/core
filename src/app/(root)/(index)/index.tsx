@@ -25,17 +25,16 @@ export default function Index() {
         .
       </Text>
 
-      <SSOButton socialMethod="microsoft" radius="none" iconFormat="round"></SSOButton>
+      <SSOButton socialMethod="discord" radius="none"></SSOButton>
       <SSOButton
         onPress={() => console.log('hola')}
         className="my-5"
-        socialMethod="pinterest"
+        socialMethod="discord"
         radius="full"
         size="compact"
-        iconFormat="round"
       ></SSOButton>
-      <SSOButton socialMethod="pinterest" size="compact"></SSOButton>
-      <SSOButton socialMethod="pinterest" iconFormat="plain" size="compact"></SSOButton>
+      <SSOButton socialMethod="discord" size="compact"></SSOButton>
+      <SSOButton socialMethod="discord" size="compact"></SSOButton>
     </SafeAreaView>
   );
 }
