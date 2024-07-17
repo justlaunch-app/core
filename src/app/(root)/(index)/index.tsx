@@ -25,7 +25,7 @@ export default function Index() {
         .
       </Text>
 
-      <SSOButton socialMethod="pinterest" iconFormat="round"></SSOButton>
+      <SSOButton socialMethod="pinterest" radius="none" iconFormat="round"></SSOButton>
       <SSOButton socialMethod="pinterest" size="compact" iconFormat="round"></SSOButton>
       <SSOButton socialMethod="pinterest" size="compact"></SSOButton>
       <SSOButton socialMethod="pinterest" iconFormat="plain" size="compact"></SSOButton>

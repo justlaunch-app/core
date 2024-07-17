@@ -5,15 +5,25 @@ import { cn } from '@/lib/cn';
 import { Icon as FontAwesome, Ionicon } from '@/components/core/icon';
 import { Text } from '@/components/core/text';
 
-const buttonVariants = cva('group flex items-center justify-center rounded-3xl', {
+const buttonVariants = cva('group flex items-center justify-center', {
   variants: {
     size: {
       default: 'h-10 px-4 py-2 h-12 px-5 py-3',
       compact: 'h-8 px-3 py-1 h-10 px-4 py-2 w-20',
     },
+    radius: {
+      none: '',
+      sm: 'rounded-sm',
+      default: 'rounded-lg',
+      lg: 'rounded-lg',
+      xl: 'rounded-xl',
+      xxl: 'rounded-2xl',
+      full: 'rounded-3xl',
+    },
   },
   defaultVariants: {
     size: 'default',
+    radius: 'default',
   },
 });
 
@@ -29,7 +39,7 @@ type ButtonProps<T extends SocialMethod> = React.ComponentPropsWithoutRef<typeof
   };
 
 const SSOButton = <T extends SocialMethod>(
-  { className, size, socialMethod, iconFormat, ...props }: ButtonProps<T>,
+  { className, size, socialMethod, radius, iconFormat, ...props }: ButtonProps<T>,
   ref: React.Ref<React.ElementRef<typeof Pressable>>
 ) => {
   const method = socialMethods[socialMethod];
@@ -59,7 +69,7 @@ const SSOButton = <T extends SocialMethod>(
 
   return (
     <Pressable
-      className={cn(buttonVariants({ size, className }), 'bg-red-500')}
+      className={cn(buttonVariants({ size, className, radius }), 'bg-card')}
       ref={ref}
       role="button"
       {...props}
