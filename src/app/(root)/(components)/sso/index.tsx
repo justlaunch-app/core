@@ -6,14 +6,14 @@ import { Link } from 'expo-router';
 import { Text } from '@/components/core/text';
 import { SafeAreaView } from '@/components/core/safe-area-view';
 
-export default function Index() {
+export default function SSO() {
   const { colorScheme } = useColorScheme();
 
   return (
     <SafeAreaView>
       <View className="flex items-center justify-between">
         <Text variant="largeTitle" color="primary">
-          Hello World
+          SSO
         </Text>
         <Text variant="footnote" color="quarternary" className="text-lg">
           Current theme is {colorScheme}
