@@ -25,12 +25,7 @@ export default function Index() {
         .
       </Text>
 
-      <SSOButton
-        onPress={() => console.log('hola')}
-        socialMethod="pinterest"
-        radius="none"
-        iconFormat="round"
-      ></SSOButton>
+      <SSOButton socialMethod="microsoft" radius="none" iconFormat="round"></SSOButton>
       <SSOButton
         onPress={() => console.log('hola')}
         className="my-5"

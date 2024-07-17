@@ -3,6 +3,7 @@ import { useFonts } from 'expo-font';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Stack } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
+import * as WebBrowser from 'expo-web-browser';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -40,6 +41,8 @@ export const unstable_settings = {
   initialRouteName: 'index',
 };
 
+const clerkApiKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY || '';
+
 const tokenCache = {
   async getToken(key: string) {
     try {
@@ -65,9 +68,8 @@ const tokenCache = {
   },
 };
 
-const clerkApiKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY || '';
-
 SplashScreen.preventAutoHideAsync();
+WebBrowser.maybeCompleteAuthSession();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
