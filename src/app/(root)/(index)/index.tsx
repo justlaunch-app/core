@@ -25,8 +25,20 @@ export default function Index() {
         .
       </Text>
 
-      <SSOButton socialMethod="pinterest" radius="none" iconFormat="round"></SSOButton>
-      <SSOButton socialMethod="pinterest" size="compact" iconFormat="round"></SSOButton>
+      <SSOButton
+        onPress={() => console.log('hola')}
+        socialMethod="pinterest"
+        radius="none"
+        iconFormat="round"
+      ></SSOButton>
+      <SSOButton
+        onPress={() => console.log('hola')}
+        className="my-5"
+        socialMethod="pinterest"
+        radius="full"
+        size="compact"
+        iconFormat="round"
+      ></SSOButton>
       <SSOButton socialMethod="pinterest" size="compact"></SSOButton>
       <SSOButton socialMethod="pinterest" iconFormat="plain" size="compact"></SSOButton>
     </SafeAreaView>

@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
-import { Pressable } from 'react-native';
+import { Pressable, ViewStyle, StyleProp, View } from 'react-native';
 import { cn } from '@/lib/cn';
 import { Icon as FontAwesome, Ionicon } from '@/components/core/icon';
 import { Text } from '@/components/core/text';
@@ -8,8 +8,8 @@ import { Text } from '@/components/core/text';
 const buttonVariants = cva('group flex items-center justify-center', {
   variants: {
     size: {
-      default: 'h-10 px-4 py-2 h-12 px-5 py-3',
-      compact: 'h-8 px-3 py-1 h-10 px-4 py-2 w-20',
+      default: 'h-12 px-5 py-3',
+      compact: 'h-16 w-16',
     },
     radius: {
       none: '',
@@ -18,7 +18,8 @@ const buttonVariants = cva('group flex items-center justify-center', {
       lg: 'rounded-lg',
       xl: 'rounded-xl',
       xxl: 'rounded-2xl',
-      full: 'rounded-3xl',
+      xxxl: 'rounded-3xl',
+      full: 'rounded-[99999]',
     },
   },
   defaultVariants: {
@@ -34,12 +35,14 @@ type ValidIconFormats = {
 
 type ButtonProps<T extends SocialMethod> = React.ComponentPropsWithoutRef<typeof Pressable> &
   VariantProps<typeof buttonVariants> & {
+    style?: StyleProp<ViewStyle>;
     socialMethod: T;
     iconFormat?: ValidIconFormats[T];
+    iconSize?: number;
   };
 
 const SSOButton = <T extends SocialMethod>(
-  { className, size, socialMethod, radius, iconFormat, ...props }: ButtonProps<T>,
+  { className, size, socialMethod, radius, iconSize = 26, iconFormat, ...props }: ButtonProps<T>,
   ref: React.Ref<React.ElementRef<typeof Pressable>>
 ) => {
   const method = socialMethods[socialMethod];
@@ -69,20 +72,28 @@ const SSOButton = <T extends SocialMethod>(
 
   return (
     <Pressable
-      className={cn(buttonVariants({ size, className, radius }), 'bg-card')}
+      className={cn(
+        props.disabled && 'opacity-50',
+        buttonVariants({ size, className, radius }),
+        'bg-card'
+      )}
       ref={ref}
       role="button"
       {...props}
     >
-      <Text className="flex items-center justify-center gap-5">
-        <Icon
-          name={icon.name as keyof typeof FontAwesome}
-          size={24}
-          className="mr-2"
-          color={method.icon.color}
-        />
-        {!isCompact && <Text>{method.title}</Text>}
-      </Text>
+      {({ pressed }) => (
+        <View className={cn(pressed && 'opacity-50')}>
+          <Text className="flex items-center justify-center">
+            <Icon
+              name={icon.name as keyof typeof FontAwesome}
+              size={iconSize}
+              className="mr-2"
+              color={method.icon.color}
+            />
+            {!isCompact && <Text>{method.title}</Text>}
+          </Text>
+        </View>
+      )}
     </Pressable>
   );
 };
