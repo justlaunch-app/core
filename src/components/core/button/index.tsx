@@ -1,3 +1,5 @@
 import { TouchableOpacity } from './touchable-opacity';
+import { Button } from './button-default';
+import { SSOButton } from './sso';
 
-export { TouchableOpacity };
+export { TouchableOpacity, Button, SSOButton };
