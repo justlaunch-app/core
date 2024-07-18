@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { BackgroundVideo } from '@/components/core/background-video';
+import { BackgroundVideo } from '@/components/core/background';
 import { Text } from '@/components/core/text';
 
 export default function BackgroundVideoExample() {

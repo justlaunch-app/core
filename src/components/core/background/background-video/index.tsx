@@ -1,3 +1,13 @@
+/**
+ * Installation: npx expo install expo-av
+ * 
+ * This is an example of a video background in Expo. The video is muted and set to loop. The video is played in the background and the content is displayed on top of it.
+ * 1. For full screen video, you need to remove the header for the screen. You can do it by adding headerShown: false to the Stack Screen.
+ * 2. You need to change metro config to use mp4 format. You can do this by adding the following code to the metro.config.js file or check out the metro config for this repository.
+    - resolver: assetExts
+    - assetExts: [...assetExts, 'mp4'], 
+*/
+
 import * as React from 'react';
 import { View } from 'react-native';
 import { Video, ResizeMode, VideoProps } from 'expo-av';
