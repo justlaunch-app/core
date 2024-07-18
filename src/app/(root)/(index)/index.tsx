@@ -56,6 +56,10 @@ export default function Index() {
         <Link href="/picker">
           <Text className="text-blue-500">Picker</Text>
         </Link>
+
+        <Link href="/avatar">
+          <Text className="text-blue-500">Avatar</Text>
+        </Link>
       </View>
     </SafeAreaView>
   );
