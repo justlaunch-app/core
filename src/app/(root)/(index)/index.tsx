@@ -53,6 +53,10 @@ export default function Index() {
           <Text className="text-blue-500">Clipboard</Text>
         </Link>
 
+        <Link href="/mail-composer">
+          <Text className="text-blue-500">Mail Composer</Text>
+        </Link>
+
         <Link href="/activity-indicator">
           <Text className="text-blue-500">Activity Indicator</Text>
         </Link>
