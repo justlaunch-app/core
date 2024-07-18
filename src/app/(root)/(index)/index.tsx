@@ -20,9 +20,13 @@ export default function Index() {
         </Text>
       </View>
 
-      <View className="pt-10">
+      <View className="pt-10 flex flex-col gap-3">
         <Link href="/sso">
           <Text className="text-blue-500">SSO-buttons</Text>
+        </Link>
+
+        <Link href="/background-video">
+          <Text className="text-blue-500">Video Background</Text>
         </Link>
       </View>
     </SafeAreaView>

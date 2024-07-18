@@ -5,7 +5,7 @@ import { Video, ResizeMode, VideoProps } from 'expo-av';
 import { cn } from '@/lib/cn';
 
 const BackgroundVideo = ({
-  videoSource,
+  src,
   rate = 1.0,
   volume = 0,
   isMuted = true,
@@ -13,10 +13,9 @@ const BackgroundVideo = ({
   shouldPlay = true,
   isLooping = true,
   children,
-  videoClassName = '',
   contentClassName = '',
 }: {
-  videoSource: VideoProps['source'];
+  src: VideoProps['source'];
   rate?: number;
   volume?: number;
   isMuted?: boolean;
@@ -24,26 +23,33 @@ const BackgroundVideo = ({
   shouldPlay?: boolean;
   isLooping?: boolean;
   children?: React.ReactNode;
-  videoClassName?: string;
   contentClassName?: string;
 }) => {
-  const video = React.useRef(null);
+  const video = React.useRef<Video>(null);
 
   return (
     <>
       <Video
         ref={video}
-        source={videoSource}
+        source={src}
         rate={rate}
         volume={volume}
         isMuted={isMuted}
         resizeMode={resizeMode}
         shouldPlay={shouldPlay}
         isLooping={isLooping}
-        className={cn('absolute top-0 bottom-0 left-0 right-0', { videoClassName })}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+        }}
       />
       {children && (
-        <View className={cn('flex-1 w-full justify-center', { contentClassName })}>{children}</View>
+        <View className={cn('flex-1 w-full items-center justify-center', contentClassName)}>
+          {children}
+        </View>
       )}
     </>
   );
