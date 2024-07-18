@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/core/avatar';
 
 export default function AvatarExample() {
   return (
-    <View className="items-center">
+    <View className="items-center mt-10">
       <Avatar alt="NativeWindUI Avatar">
         <AvatarImage
           source={{
