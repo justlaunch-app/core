@@ -1,4 +1,3 @@
-import { View } from 'lucide-react-native';
 import { TouchableOpacity } from '@/components/core/button';
 import { Text } from '@/components/core/text';
 import { useClipboard } from '@/hooks/clipboard';
