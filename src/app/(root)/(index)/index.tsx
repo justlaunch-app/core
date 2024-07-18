@@ -52,6 +52,10 @@ export default function Index() {
         <Link href="/device-info">
           <Text className="text-blue-500">Device Info</Text>
         </Link>
+
+        <Link href="/picker">
+          <Text className="text-blue-500">Picker</Text>
+        </Link>
       </View>
     </SafeAreaView>
   );
