@@ -26,6 +26,9 @@ dependencies:
   '@react-native-community/datetimepicker':
     specifier: 8.0.1
     version: 8.0.1(react-native@0.74.3)(react@18.2.0)
+  '@react-native-community/slider':
+    specifier: 4.5.2
+    version: 4.5.2
   '@react-native-picker/picker':
     specifier: 2.7.5
     version: 2.7.5(react-native@0.74.3)(react@18.2.0)
@@ -3366,6 +3369,10 @@ packages:
       invariant: 2.2.4
       react: 18.2.0
       react-native: 0.74.3(@babel/core@7.24.7)(@babel/preset-env@7.23.9)(@types/react@18.2.79)(react@18.2.0)
+    dev: false
+
+  /@react-native-community/slider@4.5.2:
+    resolution: {integrity: sha512-DbFyCyI7rwl0FkBkp0lzEVp+5mNfS5qU/nM2sK2aSguWhj0Odkt1aKHP2iW/ljruOhgS/O4dEixXlne4OdZJDQ==}
     dev: false
 
   /@react-native-picker/picker@2.7.5(react-native@0.74.3)(react@18.2.0):
