@@ -59,4 +59,4 @@ const TAB_THEME = {
     },
 };
 
-export { NAV_THEME, TAB_THEME };
+export { NAV_THEME, TAB_THEME, COLORS };

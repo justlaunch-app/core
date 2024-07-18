@@ -11,6 +11,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 // Providers
 import { ThemeProvider } from '@react-navigation/native';
 import { ClerkProvider, ClerkLoaded } from '@clerk/clerk-expo';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
 /**
  * https://www.npmjs.com/package/react-native-keyboard-controller
@@ -114,11 +115,13 @@ function RootLayoutNav() {
       <ClerkProvider publishableKey={clerkApiKey} tokenCache={tokenCache}>
         <ThemeProvider value={NAV_THEME[colorScheme]}>
           <GestureHandlerRootView style={{ flex: 1 }}>
-            <ClerkLoaded>
-              <Stack screenOptions={{ animation: 'ios' }}>
-                <Stack.Screen name="(root)" options={{ headerShown: false }} />
-              </Stack>
-            </ClerkLoaded>
+            <BottomSheetModalProvider>
+              <ClerkLoaded>
+                <Stack screenOptions={{ animation: 'ios' }}>
+                  <Stack.Screen name="(root)" options={{ headerShown: false }} />
+                </Stack>
+              </ClerkLoaded>
+            </BottomSheetModalProvider>
           </GestureHandlerRootView>
         </ThemeProvider>
       </ClerkProvider>

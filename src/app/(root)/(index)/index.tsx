@@ -21,8 +21,16 @@ export default function Index() {
       </View>
 
       <View className="pt-10 flex flex-col gap-3">
+        <Link href="/avatar">
+          <Text className="text-blue-500">Avatar</Text>
+        </Link>
+
+        <Link href="/bottom-sheet">
+          <Text className="text-blue-500">Bottom Sheet</Text>
+        </Link>
+
         <Link href="/sso">
-          <Text className="text-blue-500">SSO-buttons</Text>
+          <Text className="text-blue-500">SSO Button</Text>
         </Link>
 
         <Link href="/background-video">
@@ -55,10 +63,6 @@ export default function Index() {
 
         <Link href="/picker">
           <Text className="text-blue-500">Picker</Text>
-        </Link>
-
-        <Link href="/avatar">
-          <Text className="text-blue-500">Avatar</Text>
         </Link>
       </View>
     </SafeAreaView>
