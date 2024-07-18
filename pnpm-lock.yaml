@@ -47,12 +47,18 @@ dependencies:
   expo-av:
     specifier: ~14.0.6
     version: 14.0.6(expo@51.0.21)
+  expo-clipboard:
+    specifier: ~6.0.3
+    version: 6.0.3(expo@51.0.21)
   expo-font:
     specifier: ~12.0.9
     version: 12.0.9(expo@51.0.21)
   expo-image:
     specifier: ~1.12.13
     version: 1.12.13(expo@51.0.21)
+  expo-linear-gradient:
+    specifier: ~13.0.2
+    version: 13.0.2(expo@51.0.21)
   expo-linking:
     specifier: ^6.3.1
     version: 6.3.1(expo@51.0.21)
@@ -5539,6 +5545,14 @@ packages:
       expo: 51.0.21(@babel/core@7.24.7)(@babel/preset-env@7.23.9)
     dev: false
 
+  /expo-clipboard@6.0.3(expo@51.0.21):
+    resolution: {integrity: sha512-RIKDsuHkYfaspifbFpVC8sBVFKR05L7Pj7mU2/XkbrW9m01OBNvdpGraXEMsTFCx97xMGsZpEw9pPquL4j4xVg==}
+    peerDependencies:
+      expo: '*'
+    dependencies:
+      expo: 51.0.21(@babel/core@7.24.7)(@babel/preset-env@7.23.9)
+    dev: false
+
   /expo-constants@16.0.2(expo@51.0.21):
     resolution: {integrity: sha512-9tNY3OVO0jfiMzl7ngb6IOyR5VFzNoN5OOazUWoeGfmMqVB5kltTemRvKraK9JRbBKIw+SOYLEmF0sEqgFZ6OQ==}
     peerDependencies:
@@ -5595,6 +5609,14 @@ packages:
 
   /expo-keep-awake@13.0.2(expo@51.0.21):
     resolution: {integrity: sha512-kKiwkVg/bY0AJ5q1Pxnm/GvpeB6hbNJhcFsoOWDh2NlpibhCLaHL826KHUM+WsnJRbVRxJ+K9vbPRHEMvFpVyw==}
+    peerDependencies:
+      expo: '*'
+    dependencies:
+      expo: 51.0.21(@babel/core@7.24.7)(@babel/preset-env@7.23.9)
+    dev: false
+
+  /expo-linear-gradient@13.0.2(expo@51.0.21):
+    resolution: {integrity: sha512-EDcILUjRKu4P1rtWcwciN6CSyGtH7Bq4ll3oTRV7h3h8oSzSilH1g6z7kTAMlacPBKvMnkkWOGzW6KtgMKEiTg==}
     peerDependencies:
       expo: '*'
     dependencies:

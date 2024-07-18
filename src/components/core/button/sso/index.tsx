@@ -107,7 +107,6 @@ const SSOButton = <T extends SocialMethod>(
       ref={ref}
       role="button"
       onPress={() => {
-        console.log('Button pressed for social method:', socialMethod);
         ssoLogin();
       }}
       {...props}

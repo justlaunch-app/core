@@ -28,6 +28,14 @@ export default function Index() {
         <Link href="/background-video">
           <Text className="text-blue-500">Video Background</Text>
         </Link>
+
+        <Link href="/linear-gradient">
+          <Text className="text-blue-500">Linear Gradient Background</Text>
+        </Link>
+
+        <Link href="/clipboard">
+          <Text className="text-blue-500">Clipboard</Text>
+        </Link>
       </View>
     </SafeAreaView>
   );
