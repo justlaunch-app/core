@@ -40,6 +40,14 @@ export default function Index() {
         <Link href="/activity-indicator">
           <Text className="text-blue-500">Activity Indicator</Text>
         </Link>
+
+        <Link href="/date-picker">
+          <Text className="text-blue-500">Date Picker</Text>
+        </Link>
+
+        <Link href="/separator">
+          <Text className="text-blue-500">Separator</Text>
+        </Link>
       </View>
     </SafeAreaView>
   );
