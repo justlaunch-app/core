@@ -36,6 +36,10 @@ export default function Index() {
         <Link href="/clipboard">
           <Text className="text-blue-500">Clipboard</Text>
         </Link>
+
+        <Link href="/activity-indicator">
+          <Text className="text-blue-500">Activity Indicator</Text>
+        </Link>
       </View>
     </SafeAreaView>
   );
