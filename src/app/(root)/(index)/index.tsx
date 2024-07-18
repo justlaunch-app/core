@@ -48,6 +48,10 @@ export default function Index() {
         <Link href="/separator">
           <Text className="text-blue-500">Separator</Text>
         </Link>
+
+        <Link href="/device-info">
+          <Text className="text-blue-500">Device Info</Text>
+        </Link>
       </View>
     </SafeAreaView>
   );
