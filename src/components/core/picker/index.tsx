@@ -15,6 +15,7 @@ const CustomPicker = ({
   labelClassName,
   labelVariant = 'heading' as keyof typeof textVariants,
   style,
+  width = 100,
 }: {
   label?: string;
   selectedValue: string;
@@ -24,6 +25,7 @@ const CustomPicker = ({
   labelClassName?: string;
   labelVariant?: keyof typeof textVariants;
   style?: StyleProp<TextStyle>;
+  width?: number;
 }) => {
   const { colorScheme } = useColorScheme();
   const color = NAV_THEME[colorScheme].colors.primary;
@@ -39,7 +41,7 @@ const CustomPicker = ({
 
   const combinedStyle = StyleSheet.flatten([
     {
-      width: '100%' as DimensionValue | undefined,
+      width: `${width}%` as DimensionValue | undefined,
       marginTop: -20,
     },
     style,
