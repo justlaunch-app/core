@@ -25,6 +25,10 @@ export default function Index() {
           <Text className="text-blue-500">Avatar</Text>
         </Link>
 
+        <Link href="/store-review">
+          <Text className="text-blue-500">Store Review</Text>
+        </Link>
+
         <Link href="/bottom-sheet">
           <Text className="text-blue-500">Bottom Sheet</Text>
         </Link>
