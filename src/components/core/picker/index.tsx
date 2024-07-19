@@ -28,7 +28,8 @@ const CustomPicker = ({
   width?: number;
 }) => {
   const { colorScheme } = useColorScheme();
-  const color = NAV_THEME[colorScheme].colors.primary;
+  if (!colorScheme) return null;
+  const color = NAV_THEME[colorScheme]?.colors.primary || '';
 
   if (
     !Array.isArray(items) ||
