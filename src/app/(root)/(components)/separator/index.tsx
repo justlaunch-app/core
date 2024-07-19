@@ -6,6 +6,8 @@ import { NAV_THEME } from '@/theme';
 export default function SeparatorExample() {
   const { colorScheme } = useColorScheme();
 
+  if (!colorScheme) return null;
+
   return (
     <View className="items-center mt-10">
       <Separator borderColor={NAV_THEME[colorScheme].colors.border} text="or SSO" />

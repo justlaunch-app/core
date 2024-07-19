@@ -28,6 +28,9 @@ const BottomSheet = React.forwardRef<
     (props: BottomSheetBackdropProps) => <BottomSheetBackdrop {...props} disappearsOnIndex={-1} />,
     []
   );
+
+  if (!colorScheme) return null;
+
   return (
     <BottomSheetModal
       ref={ref}

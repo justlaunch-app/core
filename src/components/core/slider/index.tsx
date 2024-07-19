@@ -11,12 +11,21 @@ function Slider({
   ...props
 }: React.ComponentPropsWithoutRef<typeof RNSlider>) {
   const { colorScheme } = useColorScheme();
+
+  if (!colorScheme) return null;
+
   return (
     <RNSlider
-      thumbTintColor={thumbTintColor ?? Platform.OS === 'ios' ? COLORS.white : NAV_THEME[colorScheme].colors.primary}
+      thumbTintColor={
+        (thumbTintColor ?? Platform.OS === 'ios')
+          ? COLORS.white
+          : NAV_THEME[colorScheme].colors.primary
+      }
       minimumTrackTintColor={minimumTrackTintColor ?? NAV_THEME[colorScheme].colors.primary}
       maximumTrackTintColor={
-        maximumTrackTintColor ?? Platform.OS === 'android' ? NAV_THEME[colorScheme].colors.primary : undefined
+        (maximumTrackTintColor ?? Platform.OS === 'android')
+          ? NAV_THEME[colorScheme].colors.primary
+          : undefined
       }
       {...props}
     />
