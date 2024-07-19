@@ -41,6 +41,10 @@ export default function Index() {
           <Text className="text-blue-500">SSO Button</Text>
         </Link>
 
+        <Link href="/map">
+          <Text className="text-blue-500">Map</Text>
+        </Link>
+
         <Link href="/background-video">
           <Text className="text-blue-500">Video Background</Text>
         </Link>

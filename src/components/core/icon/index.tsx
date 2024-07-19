@@ -33,7 +33,9 @@ import { TAB_THEME } from '@/theme';
  */
 import { icons, LucideProps } from 'lucide-react-native';
 
-export const Icon = ({
+type FontawesomeIconType = React.ComponentProps<typeof FontAwesome>['name'];
+
+const Icon = ({
   name,
   color,
   className,
@@ -41,7 +43,7 @@ export const Icon = ({
   onPress,
   style,
 }: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
+  name: FontawesomeIconType;
   color?: ColorValue;
   className?: string;
   size?: number;
@@ -60,7 +62,7 @@ export const Icon = ({
   );
 };
 
-export const LucideIcon = ({
+const LucideIcon = ({
   name,
   color,
   size,
@@ -88,7 +90,7 @@ export const LucideIcon = ({
   );
 };
 
-export const Ionicon = ({
+const Ionicon = ({
   name,
   color,
   size,
@@ -115,7 +117,7 @@ export const Ionicon = ({
   );
 };
 
-export const TabBarIcon = ({
+const TabBarIcon = ({
   name,
   pathnames = [],
   className,
@@ -140,3 +142,5 @@ export const TabBarIcon = ({
     />
   );
 };
+
+export { Icon, LucideIcon, Ionicon, TabBarIcon, FontawesomeIconType };
