@@ -40,6 +40,10 @@ export default function Index() {
           <Text className="text-blue-500">Bottom Sheet</Text>
         </Link>
 
+        <Link href="/calendar">
+          <Text className="text-blue-500">Calendar</Text>
+        </Link>
+
         <Link href="/sso">
           <Text className="text-blue-500">SSO Button</Text>
         </Link>
