@@ -1,7 +1,7 @@
 import { useColorScheme } from 'nativewind';
 
 /** Components */
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { Link } from 'expo-router';
 import { Text } from '@/components/core/text';
 import { SafeAreaView } from '@/components/core/safe-area-view';
@@ -20,7 +20,10 @@ export default function Index() {
         </Text>
       </View>
 
-      <View className="pt-10 flex flex-col gap-3">
+      <ScrollView
+        className="pt-10 flex flex-col gap-3"
+        contentContainerStyle={{ flexGrow: 1, paddingTop: 10, paddingBottom: 100 }}
+      >
         <Link href="/avatar">
           <Text className="text-blue-500">Avatar</Text>
         </Link>
@@ -43,6 +46,10 @@ export default function Index() {
 
         <Link href="/map">
           <Text className="text-blue-500">Map</Text>
+        </Link>
+
+        <Link href="/card">
+          <Text className="text-blue-500">Card</Text>
         </Link>
 
         <Link href="/background-video">
@@ -84,7 +91,7 @@ export default function Index() {
         <Link href="/slider">
           <Text className="text-blue-500">Slider</Text>
         </Link>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
