@@ -56,6 +56,10 @@ export default function Index() {
           <Text className="text-blue-500">Map</Text>
         </Link>
 
+        <Link href="/checkbox">
+          <Text className="text-blue-500">Checkbox</Text>
+        </Link>
+
         <Link href="/card">
           <Text className="text-blue-500">Card</Text>
         </Link>
