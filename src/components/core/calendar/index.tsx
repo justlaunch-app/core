@@ -29,7 +29,7 @@ const CalendarList = () => {
   const [selectedDate, setSelectedDate] = useState(today);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View className="flex-1">
       <Text>Selected date: {selectedDate}</Text>
       <FlashCalendar.List
         calendarActiveDateRanges={[
