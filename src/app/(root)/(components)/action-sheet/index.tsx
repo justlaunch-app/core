@@ -23,7 +23,7 @@ export default function ActionSheetMenuExample() {
   };
 
   return (
-    <View>
+    <View className="flex-1 items-center justify-center">
       <ActionSheetMenu
         options={['Option 1', 'Option 2', 'Option 3']}
         cancelButtonIndex={2}

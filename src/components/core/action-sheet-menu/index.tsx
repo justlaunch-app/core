@@ -1,21 +1,27 @@
 import React from 'react';
-import { Button } from 'react-native';
 import { useActionSheet } from '@expo/react-native-action-sheet';
 
-type ActionSheetMenuProps = {
+import { TouchableOpacity } from '@/components/core/button';
+import { Text, textVariants } from '@/components/core/text';
+
+const ActionSheetMenu = ({
+  buttonTitle = 'Action Sheet',
+  options,
+  cancelButtonIndex,
+  destructiveButtonIndex,
+  onOptionSelect,
+  className,
+  buttonClassName,
+  textVariant = 'heading' as keyof typeof textVariants,
+}: {
   buttonTitle?: string;
   options: string[];
   cancelButtonIndex: number;
   destructiveButtonIndex: number;
   onOptionSelect: (selectedIndex: number) => void;
-};
-
-const ActionSheetMenu: React.FC<ActionSheetMenuProps> = ({
-  buttonTitle = 'Menu',
-  options,
-  cancelButtonIndex,
-  destructiveButtonIndex,
-  onOptionSelect,
+  className?: string;
+  buttonClassName?: string;
+  textVariant?: keyof typeof textVariants;
 }) => {
   const { showActionSheetWithOptions } = useActionSheet();
 
@@ -32,7 +38,13 @@ const ActionSheetMenu: React.FC<ActionSheetMenuProps> = ({
     );
   };
 
-  return <Button title={buttonTitle} onPress={onPress} />;
+  return (
+    <TouchableOpacity className={className} onPress={onPress}>
+      <Text variant={textVariant} className={buttonClassName}>
+        {buttonTitle}
+      </Text>
+    </TouchableOpacity>
+  );
 };
 
 export { ActionSheetMenu };
