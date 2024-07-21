@@ -89,6 +89,9 @@ dependencies:
   expo-linking:
     specifier: ^6.3.1
     version: 6.3.1(expo@51.0.21)
+  expo-location:
+    specifier: ~17.0.1
+    version: 17.0.1(expo@51.0.21)
   expo-mail-composer:
     specifier: ~13.0.1
     version: 13.0.1(expo@51.0.21)
@@ -5764,6 +5767,14 @@ packages:
     transitivePeerDependencies:
       - expo
       - supports-color
+    dev: false
+
+  /expo-location@17.0.1(expo@51.0.21):
+    resolution: {integrity: sha512-m+OzotzlAXO3ZZ1uqW5GC25nXW868zN+ROyBA1V4VF6jGay1ZEs4URPglCVUDzZby2F5wt24cMzqDKw2IX6nRw==}
+    peerDependencies:
+      expo: '*'
+    dependencies:
+      expo: 51.0.21(@babel/core@7.24.9)(@babel/preset-env@7.24.8)
     dev: false
 
   /expo-mail-composer@13.0.1(expo@51.0.21):

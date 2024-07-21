@@ -36,6 +36,7 @@
     "expo-image": "~1.12.13",
     "expo-linear-gradient": "~13.0.2",
     "expo-linking": "^6.3.1",
+    "expo-location": "~17.0.1",
     "expo-mail-composer": "~13.0.1",
     "expo-notifications": "~0.28.10",
     "expo-router": "3.5.18",

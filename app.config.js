@@ -72,6 +72,12 @@ module.exports = {
         'expo-router',
       ],
       [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ],
+      [
         "expo-tracking-transparency",
         {
           "userTrackingPermission": "This identifier will be used to deliver personalized ads to you."
