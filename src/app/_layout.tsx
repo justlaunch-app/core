@@ -12,6 +12,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ThemeProvider } from '@react-navigation/native';
 import { ClerkProvider, ClerkLoaded } from '@clerk/clerk-expo';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 
 /**
  * https://www.npmjs.com/package/react-native-keyboard-controller
@@ -95,15 +96,14 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const { colorScheme, setColorScheme } = useColorScheme();
+  const { colorScheme = 'dark', setColorScheme } = useColorScheme();
 
   //initial colorScheme
   useEffect(() => {
     if (colorScheme === 'light') {
       setColorScheme('dark');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [colorScheme, setColorScheme]);
 
   return (
     <>
@@ -116,11 +116,13 @@ function RootLayoutNav() {
         <ThemeProvider value={NAV_THEME[colorScheme]}>
           <GestureHandlerRootView style={{ flex: 1 }}>
             <BottomSheetModalProvider>
-              <ClerkLoaded>
-                <Stack screenOptions={{ animation: 'ios' }}>
-                  <Stack.Screen name="(root)" options={{ headerShown: false }} />
-                </Stack>
-              </ClerkLoaded>
+              <ActionSheetProvider>
+                <ClerkLoaded>
+                  <Stack screenOptions={{ animation: 'ios' }}>
+                    <Stack.Screen name="(root)" options={{ headerShown: false }} />
+                  </Stack>
+                </ClerkLoaded>
+              </ActionSheetProvider>
             </BottomSheetModalProvider>
           </GestureHandlerRootView>
         </ThemeProvider>

@@ -36,6 +36,10 @@ export default function Index() {
           <Text className="text-blue-500">Store Review</Text>
         </Link>
 
+        <Link href="/action-sheet">
+          <Text className="text-blue-500">Action Sheet Menu</Text>
+        </Link>
+
         <Link href="/bottom-sheet">
           <Text className="text-blue-500">Bottom Sheet</Text>
         </Link>
