@@ -40,6 +40,10 @@ export default function Index() {
           <Text className="text-blue-500">Action Sheet Menu</Text>
         </Link>
 
+        <Link href="/share">
+          <Text className="text-blue-500">Share</Text>
+        </Link>
+
         <Link href="/bottom-sheet">
           <Text className="text-blue-500">Bottom Sheet</Text>
         </Link>
