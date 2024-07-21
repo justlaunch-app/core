@@ -64,6 +64,18 @@ export default function Index() {
           <Text className="text-blue-500">Video Background</Text>
         </Link>
 
+        <Link href="/tracking">
+          <Text className="text-blue-500">Tracking Transparency</Text>
+        </Link>
+
+        <Link href="/notification">
+          <Text className="text-blue-500">Notification</Text>
+        </Link>
+
+        <Link href="/web-view">
+          <Text className="text-blue-500">Web View</Text>
+        </Link>
+
         <Link href="/linear-gradient">
           <Text className="text-blue-500">Linear Gradient Background</Text>
         </Link>

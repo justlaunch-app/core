@@ -70,6 +70,24 @@ module.exports = {
     plugins: [
       [
         'expo-router',
+      ],
+      [
+        "expo-tracking-transparency",
+        {
+          "userTrackingPermission": "This identifier will be used to deliver personalized ads to you."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./public/favicon.png",
+          "color": "#ffffff",
+          "defaultChannel": "default",
+          // "sounds": [
+          //   "./local/assets/notification-sound.wav",
+          //   "./local/assets/notification-sound-other.wav"
+          // ]
+        }
       ]
     ],
     runtimeVersion: {
